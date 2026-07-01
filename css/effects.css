@@ -1,0 +1,376 @@
+/* ===================================================
+ * EFFECTS.CSS - CSS cho các hiệu ứng JavaScript
+ * Bài 2: Tìm hiểu JavaScript
+ * =================================================== */
+
+/* =============================================
+   1. TESTIMONIAL SLIDER STYLES
+   ============================================= */
+
+/* Slider Container */
+.testimonial-slider {
+    position: relative;
+}
+
+.slider-track {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+}
+
+/* Mỗi slide */
+.testimonial-card.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Slide đang active */
+.testimonial-card.slide.active-slide {
+    position: relative;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+    visibility: visible;
+}
+
+/* Slider Navigation */
+.slider-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+/* Nút prev/next */
+.slider-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #e0e5dc;
+    color: #1E3F20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.slider-btn:hover {
+    background-color: #1E3F20;
+    border-color: #1E3F20;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.slider-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* =============================================
+   2. SCROLL REVEAL ANIMATION
+   ============================================= */
+
+/* Trạng thái ban đầu: ẩn, dịch xuống */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Trạng thái khi xuất hiện */
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay cho các phần tử trong grid (stagger effect) */
+.feature-card.reveal:nth-child(2) { transition-delay: 0.15s; }
+.feature-card.reveal:nth-child(3) { transition-delay: 0.3s; }
+
+.category-card.reveal:nth-child(2) { transition-delay: 0.15s; }
+.category-card.reveal:nth-child(3) { transition-delay: 0.3s; }
+
+.product-card.reveal:nth-child(2) { transition-delay: 0.1s; }
+.product-card.reveal:nth-child(3) { transition-delay: 0.2s; }
+.product-card.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+
+/* =============================================
+   3. HEADER SHRINK ON SCROLL
+   ============================================= */
+
+.header {
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.header.header-scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.header.header-scrolled .container {
+    height: 60px !important;
+    transition: height 0.3s ease;
+}
+
+.header.header-scrolled .logo {
+    font-size: 22px;
+    transition: font-size 0.3s ease;
+}
+
+
+/* =============================================
+   4. BACK TO TOP BUTTON
+   ============================================= */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1E3F20, #3A5F43);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(30, 63, 32, 0.3);
+    z-index: 999;
+
+    /* Ẩn ban đầu */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* Hiện khi cuộn xuống */
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Hover effect - chỉ khi đã visible */
+.back-to-top.visible:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(30, 63, 32, 0.4);
+}
+
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* =============================================
+   5. CART BADGE
+   ============================================= */
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Badge ẩn khi = 0 */
+.cart-badge:empty,
+.cart-badge[data-count="0"] {
+    display: none;
+}
+
+/* Hiệu ứng bounce khi thêm sản phẩm */
+@keyframes badgeBounce {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.5); }
+    50% { transform: scale(0.9); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.badge-bounce {
+    animation: badgeBounce 0.6s ease;
+}
+
+
+/* =============================================
+   6. ADD TO CART BUTTON ANIMATION
+   ============================================= */
+
+.add-to-cart {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-to-cart.cart-added {
+    background-color: #27ae60;
+    transform: scale(1.2);
+}
+
+
+/* =============================================
+   7. TOAST NOTIFICATION
+   ============================================= */
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, #1E3F20, #2d5a30);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 40px rgba(30, 63, 32, 0.35);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+                transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+                visibility 0.5s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.toast-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast-icon {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+
+/* =============================================
+   8. PRODUCT CARD TILT / 3D EFFECT
+   ============================================= */
+
+.product-card {
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.product-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =============================================
+   9. HERO IMAGE PARALLAX
+   ============================================= */
+
+.hero-image {
+    overflow: hidden;
+}
+
+.hero-image img {
+    transition: transform 0.15s linear;
+    max-height: 500px;
+    object-fit: contain;
+    width: 100%;
+}
+
+
+/* =============================================
+   10. NAVBAR ACTIVE LINK TRANSITIONS
+   ============================================= */
+
+.navbar a {
+    transition: color 0.3s ease;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1E3F20;
+    transition: width 0.3s ease;
+}
+
+.navbar a.active::after,
+.navbar a:hover::after {
+    width: 100%;
+}
+
+
+/* =============================================
+   RESPONSIVE - EFFECTS
+   ============================================= */
+
+@media (max-width: 768px) {
+    .slider-nav {
+        justify-content: center;
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .toast {
+        font-size: 13px;
+        padding: 12px 20px;
+        max-width: 90vw;
+        white-space: normal;
+    }
+
+    /* Tắt tilt effect trên mobile */
+    .product-card {
+        transform: none !important;
+    }
+
+    .header.header-scrolled .container {
+        height: auto !important;
+    }
+}
