@@ -3,11 +3,36 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useCart } from '../context/CartContext'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
-  const [cartCount, setCartCount] = useState(0)
+  const [theme, setTheme] = useState('light')
   const pathname = usePathname()
+  const { getItemCount } = useCart()
+  const cartCount = getItemCount()
+
+  // Đồng bộ theme khi khởi tạo
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light'
+    setTheme(savedTheme)
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [])
+
+  // Thay đổi theme
+  const toggleTheme = (newTheme) => {
+    setTheme(newTheme)
+    localStorage.setItem('theme', newTheme)
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }
 
   useEffect(() => {
     function handleScroll() {
@@ -16,15 +41,6 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll)
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Listen for custom cart events
-  useEffect(() => {
-    function handleCartUpdate(e) {
-      setCartCount(e.detail.count)
-    }
-    window.addEventListener('cart-update', handleCartUpdate)
-    return () => window.removeEventListener('cart-update', handleCartUpdate)
   }, [])
 
   const isHome = pathname === '/'
@@ -61,6 +77,24 @@ export default function Header() {
           </ul>
         </nav>
         <div className="header-icons">
+          {/* Light/Dark Mode Switcher (Two Buttons) */}
+          <div className="theme-switcher">
+            <button
+              onClick={() => toggleTheme('light')}
+              className={`theme-btn ${theme === 'light' ? 'active' : ''}`}
+              title="Chế độ sáng"
+            >
+              ☀️
+            </button>
+            <button
+              onClick={() => toggleTheme('dark')}
+              className={`theme-btn ${theme === 'dark' ? 'active' : ''}`}
+              title="Chế độ tối"
+            >
+              🌙
+            </button>
+          </div>
+
           {/* Icon Search */}
           <a href="#">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -68,12 +102,12 @@ export default function Header() {
             </svg>
           </a>
           {/* Icon Cart */}
-          <a href="#" className="cart-icon">
+          <Link href="/cart" className="cart-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
             </svg>
             <span className={`cart-badge ${cartCount === 0 ? 'hidden' : ''}`} id="cart-badge">{cartCount}</span>
-          </a>
+          </Link>
         </div>
       </div>
     </header>

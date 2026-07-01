@@ -97,10 +97,6 @@ export default function TestimonialSlider() {
             </div>
           </div>
         </div>
-        <div className="testimonial-image">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/testimonial.jpg" alt="Customer with plants" />
-        </div>
       </div>
     </section>
   )

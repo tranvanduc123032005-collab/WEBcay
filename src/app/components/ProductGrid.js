@@ -1,31 +1,41 @@
 'use client'
 
-import { useState, useRef } from 'react'
-
-const products = [
-  { name: 'Monstera Deliciosa', rating: '★★★★★', ratingCount: '(5.0)', price: '$25.00', image: '/images/product-1.jpg' },
-  { name: 'Snake Plant', rating: '★★★★★', ratingCount: '(4.9)', price: '$18.00', image: '/images/product-2.jpg' },
-  { name: 'Fiddle Leaf Fig', rating: '★★★★★', ratingCount: '(4.8)', price: '$35.00', image: '/images/product-3.jpg' },
-  { name: 'Aloe Vera', rating: '★★★★★', ratingCount: '(4.7)', price: '$15.00', image: '/images/product-4.jpg' },
-]
+import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
+import { useCart } from '../context/CartContext'
 
 export default function ProductGrid() {
-  const [cartCount, setCartCount] = useState(0)
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
   const [addedIndex, setAddedIndex] = useState(null)
   const [toast, setToast] = useState({ visible: false, message: '' })
   const toastTimer = useRef(null)
+  const { addToCart } = useCart()
 
-  function handleAddToCart(index, productName) {
-    const newCount = cartCount + 1
-    setCartCount(newCount)
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const res = await fetch('/api/products')
+        if (res.ok) {
+          const data = await res.json()
+          setProducts(data)
+        }
+      } catch (error) {
+        console.error('Failed to load products:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadProducts()
+  }, [])
+
+  function handleAddToCart(index, product) {
+    addToCart(product)
     setAddedIndex(index)
-
-    // Dispatch cart-update event for Header
-    window.dispatchEvent(new CustomEvent('cart-update', { detail: { count: newCount } }))
 
     // Show toast
     if (toastTimer.current) clearTimeout(toastTimer.current)
-    setToast({ visible: true, message: `${productName} đã thêm vào giỏ hàng!` })
+    setToast({ visible: true, message: `${product.name} đã thêm vào giỏ hàng!` })
     toastTimer.current = setTimeout(() => {
       setToast({ visible: false, message: '' })
     }, 3000)
@@ -42,32 +52,44 @@ export default function ProductGrid() {
             <span className="section-label">Best Sellers</span>
             <h2 className="section-title">Our Best Sellers</h2>
           </div>
-          <div className="products-grid">
-            {products.map((product, i) => (
-              <div className="product-card" key={i}>
-                <div className="product-image">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={product.image} alt={product.name} />
-                </div>
-                <div className="product-info">
-                  <h3>{product.name}</h3>
-                  <div className="product-rating">
-                    <span className="stars">{product.rating}</span>
-                    <span className="rating-count">{product.ratingCount}</span>
+          {loading ? (
+            <div style={{ textAlign: 'center', padding: '40px 0', color: '#5F6F65', fontWeight: '500' }}>
+              Đang tải danh sách cây cảnh...
+            </div>
+          ) : (
+            <div className="products-grid">
+              {products.map((product, i) => (
+                <div className="product-card" key={product.id || i}>
+                  <div className="product-image">
+                    <Link href={`/detail?id=${product.id}`}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={product.image} alt={product.name} style={{ cursor: 'pointer' }} />
+                    </Link>
                   </div>
-                  <div className="product-price-row">
-                    <span className="price">{product.price}</span>
-                    <button
-                      className={`add-to-cart ${addedIndex === i ? 'cart-added' : ''}`}
-                      onClick={() => handleAddToCart(i, product.name)}
-                    >
-                      {addedIndex === i ? '✓' : '+'}
-                    </button>
+                  <div className="product-info">
+                    <Link href={`/detail?id=${product.id}`}>
+                      <h3 style={{ cursor: 'pointer' }}>{product.name}</h3>
+                    </Link>
+                    <div className="product-rating">
+                      <span className="stars">{product.rating || '★★★★★'}</span>
+                      <span className="rating-count">({product.ratingValue?.toFixed(1) || '5.0'})</span>
+                    </div>
+                    <div className="product-price-row">
+                      <span className="price">
+                        ${typeof product.price === 'number' ? product.price.toFixed(2) : product.price}
+                      </span>
+                      <button
+                        className={`add-to-cart ${addedIndex === i ? 'cart-added' : ''}`}
+                        onClick={() => handleAddToCart(i, product)}
+                      >
+                        {addedIndex === i ? '✓' : '+'}
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -79,3 +101,4 @@ export default function ProductGrid() {
     </>
   )
 }
+

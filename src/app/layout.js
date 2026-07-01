@@ -1,4 +1,5 @@
 import { Inter, Playfair_Display } from 'next/font/google'
+import { CartProvider } from './context/CartContext'
 import './globals.css'
 
 const inter = Inter({
@@ -21,7 +22,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body>{children}</body>
+      <body>
+        <CartProvider>
+          {children}
+        </CartProvider>
+      </body>
     </html>
   )
 }

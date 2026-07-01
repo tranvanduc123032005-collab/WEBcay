@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1",
+    "name": "Monstera Deliciosa",
+    "category": "Indoor Plants",
+    "rating": "★★★★★",
+    "ratingValue": 5.0,
+    "ratingCount": 120,
+    "price": 25.00,
+    "image": "/images/product-1.jpg",
+    "description": "The Monstera Deliciosa, also known as the Swiss Cheese Plant, is a popular tropical houseplant. Its large, glossy, heart-shaped leaves develop distinctive holes as they mature, making it a stunning decorative piece for any room."
+  },
+  {
+    "id": "2",
+    "name": "Snake Plant",
+    "category": "Indoor Plants",
+    "rating": "★★★★★",
+    "ratingValue": 4.9,
+    "ratingCount": 85,
+    "price": 18.00,
+    "image": "/images/product-2.jpg",
+    "description": "The Snake Plant, or Sansevieria, is one of the hardiest house plants. Characterized by its upright sword-like leaves, it is excellent at purifying air and thrives on neglect, making it perfect for beginners."
+  },
+  {
+    "id": "3",
+    "name": "Fiddle Leaf Fig",
+    "category": "Outdoor Plants",
+    "rating": "★★★★★",
+    "ratingValue": 4.8,
+    "ratingCount": 64,
+    "price": 35.00,
+    "image": "/images/product-3.jpg",
+    "description": "With its large, violin-shaped leaves and tall, elegant stature, the Fiddle Leaf Fig is a design favourite. It loves bright, indirect light and creates an instant focal point in any interior design."
+  },
+  {
+    "id": "4",
+    "name": "Aloe Vera",
+    "category": "Office Plants",
+    "rating": "★★★★★",
+    "ratingValue": 4.7,
+    "ratingCount": 42,
+    "price": 15.00,
+    "image": "/images/product-4.jpg",
+    "description": "Aloe Vera is a succulent plant species of the genus Aloe. Known for its soothing gel inside fleshy leaves, it's not only beautiful on office desks but also incredibly useful for minor burns and skin care."
+  }
+]

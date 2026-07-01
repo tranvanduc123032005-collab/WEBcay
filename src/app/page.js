@@ -4,11 +4,14 @@ import Footer from './components/Footer'
 import TestimonialSlider from './components/TestimonialSlider'
 import ProductGrid from './components/ProductGrid'
 import BackToTop from './components/BackToTop'
+import ChatWidget from './components/ChatWidget'
+import ScrollReveal from './components/ScrollReveal'
 
 export default function Home() {
   return (
     <>
       <Header />
+      <div className="page-transition">
 
       {/* ===== HERO SECTION ===== */}
       <section className="hero" id="hero">
@@ -16,7 +19,7 @@ export default function Home() {
           <div className="hero-content">
             <h1>Create your own<br />mini<span className="highlight"> plant </span></h1>
             <p>We offer a wide range of plants to help you create your own green space. Find the perfect plant for your home or office.</p>
-            <Link href="/detail" className="btn btn-primary">Mua Ngay</Link>
+            <Link href="/detail?id=1" className="btn btn-primary">Mua Ngay</Link>
           </div>
           <div className="hero-image">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -26,6 +29,7 @@ export default function Home() {
       </section>
 
       {/* ===== FEATURES SECTION ===== */}
+      <ScrollReveal>
       <section className="features">
         <div className="container">
           <div className="features-grid">
@@ -62,8 +66,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ===== ABOUT US SECTION ===== */}
+      <ScrollReveal>
       <section className="about" id="about">
         <div className="container">
           <div className="about-content">
@@ -88,8 +94,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ===== CATEGORIES SECTION ===== */}
+      <ScrollReveal>
       <section className="categories" id="categories">
         <div className="container">
           <div className="categories-header">
@@ -121,18 +129,27 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ===== BEST SELLERS SECTION ===== */}
-      <ProductGrid />
+      <ScrollReveal>
+        <ProductGrid />
+      </ScrollReveal>
 
       {/* ===== TESTIMONIAL SECTION ===== */}
-      <TestimonialSlider />
+      <ScrollReveal>
+        <TestimonialSlider />
+      </ScrollReveal>
 
       {/* ===== FOOTER ===== */}
       <Footer />
 
       {/* Back to Top */}
       <BackToTop />
+
+      {/* AI Chatbot Gemini */}
+      <ChatWidget />
+      </div>
     </>
   )
 }
