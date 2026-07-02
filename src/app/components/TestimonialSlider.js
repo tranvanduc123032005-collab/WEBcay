@@ -8,18 +8,21 @@ const testimonials = [
     quote: '"I absolutely love the plants I ordered from Oasis! They arrived fresh and healthy. The packaging was careful and eco-friendly. Highly recommend to anyone looking to add some greenery to their space!"',
     name: 'Sarah M.',
     role: 'Happy Customer',
+    avatar: '/images/avatar-sarah.png',
   },
   {
     stars: '★★★★★',
     quote: '"The Monstera I bought is thriving beautifully! Great quality plant with amazing customer service. They even included a care guide card. Will definitely be ordering more plants soon!"',
     name: 'James K.',
     role: 'Plant Enthusiast',
+    avatar: '/images/avatar-james.png',
   },
   {
     stars: '★★★★☆',
     quote: '"Beautiful selection of plants! My office space looks so much more alive now. The delivery was fast and the plants were packed with great care. The only reason it\'s not 5 stars is I wish they had more succulents!"',
     name: 'Emily T.',
     role: 'Interior Designer',
+    avatar: '/images/avatar-emily.png',
   },
 ]
 
@@ -63,7 +66,7 @@ export default function TestimonialSlider() {
                   <p className="quote">{t.quote}</p>
                   <div className="testimonial-author">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/avatar.jpg" alt={t.name} className="avatar" />
+                    <img src={t.avatar} alt={t.name} className="avatar" />
                     <div>
                       <h4>{t.name}</h4>
                       <span>{t.role}</span>

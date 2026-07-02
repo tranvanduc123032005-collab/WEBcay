@@ -44,7 +44,7 @@ export default function AdminLayout({ children }) {
         height: '100vh',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#FAF9F6',
+        backgroundColor: '#F5F3EF',
         color: '#1E3F20',
         fontFamily: 'sans-serif',
         fontSize: '18px',
@@ -62,7 +62,7 @@ export default function AdminLayout({ children }) {
 
   // Layout Dashboard có Sidebar
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#F5F7F4', fontFamily: 'var(--font-inter), sans-serif' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#F0EDE8', fontFamily: 'var(--font-inter), sans-serif' }}>
       {/* Sidebar */}
       <aside style={{
         width: '260px',
@@ -144,7 +144,7 @@ export default function AdminLayout({ children }) {
         {/* Admin Header */}
         <header style={{
           height: '70px',
-          backgroundColor: '#fff',
+          backgroundColor: '#FAFAF7',
           display: 'flex',
           justifyContent: 'flex-end',
           alignItems: 'center',
@@ -167,7 +167,7 @@ export default function AdminLayout({ children }) {
               AD
             </div>
             <div>
-              <span style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#1E3F20' }}>Adminstrator</span>
+              <span style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#1E3F20' }}>Administrator</span>
               <span style={{ display: 'block', fontSize: '11px', color: '#5F6F65' }}>Quản lý tối cao</span>
             </div>
           </div>

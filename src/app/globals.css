@@ -18,13 +18,13 @@ html {
     --primary: #1E3F20;
     --primary-hover: #2d5a30;
     --accent: #D4A843;
-    --bg: #FFFFFF;
-    --card-bg: #FFFFFF;
+    --bg: #F5F3EF;
+    --card-bg: #FAFAF7;
     --text: #333333;
     --text-light: #5F6F65;
-    --border: #E2E8F0;
-    --header-bg: #FFFFFF;
-    --header-bg-scrolled: rgba(255, 255, 255, 0.95);
+    --border: #E2E0D8;
+    --header-bg: #F5F3EF;
+    --header-bg-scrolled: rgba(245, 243, 239, 0.95);
     --accent-bg: #C1DCDC;
 }
 
@@ -204,12 +204,14 @@ button {
     align-items: center;
 }
 
-.header-icons a {
+.header-icons a,
+.header-icons button {
     color: var(--primary);
     transition: opacity 0.3s;
 }
 
-.header-icons a:hover {
+.header-icons a:hover,
+.header-icons button:hover {
     opacity: 0.7;
 }
 
@@ -231,6 +233,128 @@ button {
 
 .header.header-scrolled .logo {
     font-size: 22px;
+}
+
+
+/* ========== SEARCH OVERLAY ========== */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 63, 32, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 200;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 20vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.search-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-overlay-content {
+    width: 100%;
+    max-width: 640px;
+    padding: 0 20px;
+    transform: translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.search-overlay.open .search-overlay-content {
+    transform: translateY(0);
+}
+
+.search-overlay-content h3 {
+    font-family: var(--font-playfair), 'Playfair Display', serif;
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.search-form {
+    display: flex;
+    gap: 12px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 18px 24px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.12);
+    font-size: 18px;
+    color: #fff;
+    outline: none;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.search-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-form input:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+.search-form button {
+    padding: 18px 28px;
+    border-radius: 12px;
+    background-color: #fff;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-form button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.search-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-close-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(90deg);
+}
+
+.search-results-hint {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    margin-top: 16px;
 }
 
 
@@ -290,7 +414,7 @@ button {
 /* ========== FEATURES SECTION ========== */
 .features {
     padding: 60px 0;
-    background-color: #fff;
+    background-color: var(--card-bg);
 }
 
 .features-grid {
@@ -462,7 +586,7 @@ button {
 /* ========== BEST SELLERS SECTION ========== */
 .best-sellers {
     padding: 80px 0;
-    background-color: #fff;
+    background-color: var(--card-bg);
 }
 
 .best-sellers-header {
@@ -693,7 +817,7 @@ button {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: var(--card-bg);
     border: 2px solid var(--border);
     color: var(--primary);
     display: flex;
@@ -1457,18 +1581,7 @@ button {
    GIỎ HÀNG (CART PAGE) & THANH TOÁN (CHECKOUT) & AI CHAT
    =================================================== */
 
-:root {
-    --primary: var(--primary);
-    --primary-hover: var(--primary-hover);
-    --accent: var(--accent);
-    --bg: var(--bg);
-    --card-bg: #FFFFFF;
-    --text: var(--text);
-    --text-light: var(--text-light);
-    --border: var(--border);
-    --font-inter: var(--font-inter), 'Inter', sans-serif;
-    --font-playfair: var(--font-playfair), 'Playfair Display', serif;
-}
+
 
 /* Custom Toast override */
 .toast {
@@ -1959,7 +2072,7 @@ button {
 }
 .chat-bot {
     align-self: flex-start;
-    background-color: #fff;
+    background-color: var(--card-bg);
     color: var(--text);
     border: 1px solid var(--border);
     border-top-left-radius: 2px;
@@ -1999,7 +2112,7 @@ button {
 
 .chat-input-area {
     padding: 16px 20px;
-    background-color: #fff;
+    background-color: var(--card-bg);
     border-top: 1px solid var(--border);
     display: flex;
     gap: 12px;

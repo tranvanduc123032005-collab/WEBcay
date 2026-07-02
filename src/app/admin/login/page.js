@@ -39,7 +39,7 @@ export default function AdminLogin() {
       padding: '20px'
     }}>
       <div style={{
-        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        backgroundColor: 'rgba(250, 248, 243, 0.97)',
         padding: '50px 40px',
         borderRadius: '16px',
         width: '100%',

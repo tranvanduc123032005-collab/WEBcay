@@ -193,17 +193,17 @@ export default function AdminDashboard() {
 
       {/* Thống kê Tổng quan */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginBottom: '40px' }}>
-        <div style={{ backgroundColor: '#fff', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.02)' }}>
+        <div style={{ backgroundColor: '#FAFAF7', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.02)' }}>
           <span style={{ fontSize: '14px', color: '#5F6F65', fontWeight: '500' }}>Tổng số sản phẩm</span>
           <h2 style={{ fontSize: '32px', color: '#1E3F20', margin: '8px 0 0 0', fontWeight: '700' }}>{products.length}</h2>
         </div>
-        <div style={{ backgroundColor: '#fff', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.02)' }}>
+        <div style={{ backgroundColor: '#FAFAF7', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.02)' }}>
           <span style={{ fontSize: '14px', color: '#5F6F65', fontWeight: '500' }}>Số danh mục</span>
           <h2 style={{ fontSize: '32px', color: '#1E3F20', margin: '8px 0 0 0', fontWeight: '700' }}>
             {new Set(products.map(p => p.category)).size}
           </h2>
         </div>
-        <div style={{ backgroundColor: '#fff', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.02)' }}>
+        <div style={{ backgroundColor: '#FAFAF7', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.02)' }}>
           <span style={{ fontSize: '14px', color: '#5F6F65', fontWeight: '500' }}>Đơn giá trung bình</span>
           <h2 style={{ fontSize: '32px', color: '#1E3F20', margin: '8px 0 0 0', fontWeight: '700' }}>
             ${products.length > 0 ? (products.reduce((acc, p) => acc + p.price, 0) / products.length).toFixed(2) : 0}
@@ -241,7 +241,7 @@ export default function AdminDashboard() {
       {loading ? (
         <div style={{ textAlign: 'center', padding: '50px 0', color: '#5F6F65' }}>Đang tải danh sách...</div>
       ) : (
-        <div style={{ backgroundColor: '#fff', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.02)' }}>
+        <div style={{ backgroundColor: '#FAFAF7', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.02)' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
             <thead>
               <tr style={{ backgroundColor: '#FAF9F6', borderBottom: '1.5px solid #E0E5DC' }}>
@@ -329,7 +329,7 @@ export default function AdminDashboard() {
           zIndex: 100
         }}>
           <div style={{
-            backgroundColor: '#fff',
+            backgroundColor: '#FAFAF7',
             width: '100%',
             maxWidth: '550px',
             borderRadius: '16px',
