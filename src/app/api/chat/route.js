@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-const SYSTEM_PROMPT = `Bạn là trợ lý AI tư vấn cây cảnh của cửa hàng "ĐỨC NGƯỜI CÂY" (OASIS Plant Shop). 
+const SYSTEM_PROMPT = `Bạn là trợ lý AI tư vấn cây cảnh của cửa hàng "OASIS" (OASIS Plant Shop). 
 Nhiệm vụ của bạn:
 - Tư vấn chọn cây cảnh phù hợp với không gian (trong nhà, ngoài trời, văn phòng).
 - Hướng dẫn chăm sóc cây (tưới nước, ánh sáng, phân bón).
@@ -11,7 +11,7 @@ Nhiệm vụ của bạn:
 
 // Câu trả lời dự phòng khi không có API key hợp lệ
 const FALLBACK_RESPONSES = {
-  greeting: 'Xin chào! 🌿 Chào mừng bạn đến với cửa hàng ĐỨC NGƯỜI CÂY! Hiện tại chúng tôi có 4 loại cây hot: Monstera ($25), Snake Plant ($18), Fiddle Leaf Fig ($35) và Aloe Vera ($15). Bạn quan tâm đến loại cây nào?',
+  greeting: 'Xin chào! 🌿 Chào mừng bạn đến với cửa hàng OASIS! Hiện tại chúng tôi có 4 loại cây hot: Monstera ($25), Snake Plant ($18), Fiddle Leaf Fig ($35) và Aloe Vera ($15). Bạn quan tâm đến loại cây nào?',
   monstera: '🌿 Monstera Deliciosa - Giá $25\nĐây là loại cây rất đẹp với lá xẻ thuỳ độc đáo. Phù hợp đặt trong nhà, cần ánh sáng gián tiếp, tưới 1-2 lần/tuần. Cây này rất dễ chăm sóc và phát triển nhanh! Bạn muốn đặt mua không?',
   snake: '🌿 Snake Plant (Lưỡi hổ) - Giá $18\nCây lọc không khí tuyệt vời, cực kỳ dễ chăm sóc! Chịu được điều kiện ánh sáng yếu, chỉ cần tưới 2 tuần/lần. Phù hợp cho văn phòng và phòng ngủ. Bạn muốn tìm hiểu thêm không?',
   fiddle: '🌿 Fiddle Leaf Fig - Giá $35\nCây sung đàn rất đẹp và sang trọng. Cần ánh sáng sáng gián tiếp, tưới khi đất khô. Đây là loại cây trang trí nội thất rất phổ biến! Bạn có muốn xem chi tiết không?',

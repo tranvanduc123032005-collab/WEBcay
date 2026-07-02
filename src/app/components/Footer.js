@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Cột 1: Brand */}
           <div className="footer-brand">
-            <div className="footer-logo">ĐỨC NGƯỜI CÂY</div>
+            <div className="footer-logo">OASIS</div>
             <p>Your one-stop shop for premium indoor and outdoor plants. We bring nature closer to you.</p>
             <div className="social-icons">
               <a href="#">
@@ -76,7 +76,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2026 ĐỨC NGƯỜI CÂY. All rights reserved.</p>
+          <p>&copy; 2026 OASIS. All rights reserved.</p>
         </div>
       </div>
     </footer>

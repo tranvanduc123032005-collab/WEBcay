@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata = {
-  title: 'ĐỨC NGƯỜI CÂY - Plant Shop',
+  title: 'OASIS - Plant Shop',
   description: 'Your one-stop shop for premium indoor and outdoor plants. We bring nature closer to you.',
 }
 

@@ -136,7 +136,7 @@ export default function Header() {
     <>
       <header className={`header ${scrolled ? 'header-scrolled' : ''}`}>
         <div className="container">
-          <Link href="/" className="logo">ĐỨC NGƯỜI CÂY</Link>
+        <Link href="/" className="logo">OASIS</Link>
           <nav className="navbar">
             <ul>
               {navItems.map((item) => (

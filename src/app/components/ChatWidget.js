@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from 'react'
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState([
-    { role: 'model', text: 'Xin chào! 🌿 Tôi là trợ lý AI của cửa hàng ĐỨC NGƯỜI CÂY. Tôi có thể tư vấn giúp bạn chọn cây cảnh phù hợp. Bạn cần hỗ trợ gì?' }
+    { role: 'model', text: 'Xin chào! 🌿 Tôi là trợ lý AI của cửa hàng OASIS. Tôi có thể tư vấn giúp bạn chọn cây cảnh phù hợp. Bạn cần hỗ trợ gì?' }
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)

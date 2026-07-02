@@ -17,9 +17,9 @@ export default function Home() {
       <section className="hero" id="hero">
         <div className="container">
           <div className="hero-content">
-            <h1>Create your own<br />mini<span className="highlight"> plant </span></h1>
+            <h1>Create your own<br />mini<span className="highlight"> oasis </span></h1>
             <p>We offer a wide range of plants to help you create your own green space. Find the perfect plant for your home or office.</p>
-            <Link href="/detail?id=1" className="btn btn-primary">Mua Ngay</Link>
+            <Link href="/detail?id=1" className="btn btn-primary">Shop Now</Link>
           </div>
           <div className="hero-image">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -40,7 +40,7 @@ export default function Home() {
                   <path d="M128,188a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h20A12,12,0,0,1,128,188Zm72-92a91.84,91.84,0,0,1-2.34,20.64C190.53,84.71,161.89,60,128,60S65.47,84.71,58.34,116.64A91.84,91.84,0,0,1,56,96,72,72,0,0,1,200,96Zm-24,0a48,48,0,0,0-96,0c0,44.18,48,84,48,84S176,140.18,176,96Z" />
                 </svg>
               </div>
-              <h3>Large Assortment</h3>
+              <h3>Quality Plants</h3>
               <p>We offer many different types of products with fewer variations in each category.</p>
             </div>
             {/* Feature 2 */}
