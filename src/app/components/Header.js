@@ -163,6 +163,7 @@ export default function Header() {
                 onClick={() => toggleTheme('light')}
                 className={`theme-btn ${theme === 'light' ? 'active' : ''}`}
                 title="Chế độ sáng"
+                aria-label="Chuyển sang chế độ sáng"
               >
                 ☀️
               </button>
@@ -170,6 +171,7 @@ export default function Header() {
                 onClick={() => toggleTheme('dark')}
                 className={`theme-btn ${theme === 'dark' ? 'active' : ''}`}
                 title="Chế độ tối"
+                aria-label="Chuyển sang chế độ tối"
               >
                 🌙
               </button>

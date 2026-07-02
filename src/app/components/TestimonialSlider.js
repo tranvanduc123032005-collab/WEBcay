@@ -66,7 +66,7 @@ export default function TestimonialSlider() {
                   <p className="quote">{t.quote}</p>
                   <div className="testimonial-author">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={t.avatar} alt={t.name} className="avatar" />
+                    <img src={t.avatar} alt={t.name} className="avatar" loading="lazy" />
                     <div>
                       <h4>{t.name}</h4>
                       <span>{t.role}</span>

@@ -53,8 +53,18 @@ export default function ProductGrid() {
             <h2 className="section-title">Our Best Sellers</h2>
           </div>
           {loading ? (
-            <div style={{ textAlign: 'center', padding: '40px 0', color: '#5F6F65', fontWeight: '500' }}>
-              Đang tải danh sách cây cảnh...
+            <div className="products-grid">
+              {[...Array(4)].map((_, i) => (
+                <div className="skeleton-card" key={i}>
+                  <div className="skeleton-image" />
+                  <div className="skeleton-title" />
+                  <div className="skeleton-text" />
+                  <div className="skeleton-footer">
+                    <div className="skeleton-price" />
+                    <div className="skeleton-btn" />
+                  </div>
+                </div>
+              ))}
             </div>
           ) : (
             <div className="products-grid">
@@ -63,7 +73,7 @@ export default function ProductGrid() {
                   <div className="product-image">
                     <Link href={`/detail?id=${product.id}`}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={product.image} alt={product.name} style={{ cursor: 'pointer' }} />
+                      <img src={product.image} alt={product.name} style={{ cursor: 'pointer' }} loading="lazy" />
                     </Link>
                   </div>
                   <div className="product-info">
@@ -81,6 +91,7 @@ export default function ProductGrid() {
                       <button
                         className={`add-to-cart ${addedIndex === i ? 'cart-added' : ''}`}
                         onClick={() => handleAddToCart(i, product)}
+                        aria-label={`Thêm ${product.name} vào giỏ hàng`}
                       >
                         {addedIndex === i ? '✓' : '+'}
                       </button>

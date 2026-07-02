@@ -1,11 +1,13 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { useCart } from '../context/CartContext'
-import ChatWidget from '../components/ChatWidget'
+
+const ChatWidget = dynamic(() => import('../components/ChatWidget'), { ssr: false })
 
 export default function DetailPage() {
   const [productId, setProductId] = useState(null)
@@ -111,6 +113,8 @@ export default function DetailPage() {
                 src={thumbnails[activeThumb] || product.image}
                 alt={product.name}
                 className="main-image"
+                fetchPriority="high"
+                loading="eager"
               />
               <div className="thumbnail-list">
                 {thumbnails.map((thumb, i) => (
@@ -121,6 +125,7 @@ export default function DetailPage() {
                     alt={`View ${i + 1}`}
                     className={`thumbnail ${i === activeThumb ? 'active' : ''}`}
                     onClick={() => setActiveThumb(i)}
+                    loading="lazy"
                   />
                 ))}
               </div>

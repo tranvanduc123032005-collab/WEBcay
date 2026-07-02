@@ -2217,5 +2217,90 @@ button {
     transform: scale(1.12) !important;
 }
 
+/* ========== SKELETON LOADER ========== */
+.skeleton-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+}
+
+.skeleton-image {
+    width: 100%;
+    height: 200px;
+    background-color: var(--border);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-title {
+    width: 70%;
+    height: 18px;
+    background-color: var(--border);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-text {
+    width: 40%;
+    height: 14px;
+    background-color: var(--border);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.skeleton-price {
+    width: 30%;
+    height: 22px;
+    background-color: var(--border);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pulse animation */
+@keyframes skeleton-pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+.skeleton-image,
+.skeleton-title,
+.skeleton-text,
+.skeleton-price,
+.skeleton-btn {
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+}
+
 
 

@@ -1,11 +1,13 @@
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import TestimonialSlider from './components/TestimonialSlider'
 import ProductGrid from './components/ProductGrid'
-import BackToTop from './components/BackToTop'
-import ChatWidget from './components/ChatWidget'
 import ScrollReveal from './components/ScrollReveal'
+
+const BackToTop = dynamic(() => import('./components/BackToTop'), { ssr: false })
+const ChatWidget = dynamic(() => import('./components/ChatWidget'), { ssr: false })
 
 export default function Home() {
   return (
@@ -23,7 +25,7 @@ export default function Home() {
           </div>
           <div className="hero-image">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/hero-plant.png" alt="Monstera Plant" />
+            <img src="/images/hero-plant.png" alt="Monstera Plant" fetchPriority="high" loading="eager" />
           </div>
         </div>
       </section>
@@ -87,9 +89,9 @@ export default function Home() {
           <div className="about-images">
             <div className="about-img-grid">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/about-1.jpg" alt="Plants in room" className="about-img-large" />
+              <img src="/images/about-1.jpg" alt="Plants in room" className="about-img-large" loading="lazy" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/about-2.jpg" alt="Caring for plants" className="about-img-small" />
+              <img src="/images/about-2.jpg" alt="Caring for plants" className="about-img-small" loading="lazy" />
             </div>
           </div>
         </div>
@@ -107,21 +109,21 @@ export default function Home() {
           <div className="categories-grid">
             <div className="category-card">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/category-1.jpg" alt="Natural Plants" />
+              <img src="/images/category-1.jpg" alt="Natural Plants" loading="lazy" />
               <div className="category-overlay">
                 <h3>Natural Plants</h3>
               </div>
             </div>
             <div className="category-card">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/category-2.jpg" alt="Plant Accessories" />
+              <img src="/images/category-2.jpg" alt="Plant Accessories" loading="lazy" />
               <div className="category-overlay">
                 <h3>Plant Accessories</h3>
               </div>
             </div>
             <div className="category-card">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/category-3.jpg" alt="Artificial Plants" />
+              <img src="/images/category-3.jpg" alt="Artificial Plants" loading="lazy" />
               <div className="category-overlay">
                 <h3>Artificial Plants</h3>
               </div>
