@@ -125,18 +125,18 @@ export default function Header() {
   const isHome = pathname === '/'
 
   const navItems = [
-    { label: 'Home', href: isHome ? '#hero' : '/' },
-    { label: 'About Us', href: isHome ? '#about' : '/#about' },
-    { label: 'Product', href: isHome ? '#best-sellers' : '/#best-sellers' },
-    { label: 'Testimonial', href: isHome ? '#testimonial' : '/#testimonial' },
-    { label: 'Contact', href: isHome ? '#footer' : '/#footer' },
+    { label: 'Trang chủ', href: isHome ? '#hero' : '/' },
+    { label: 'Giới thiệu', href: isHome ? '#about' : '/#about' },
+    { label: 'Sản phẩm', href: isHome ? '#best-sellers' : '/#best-sellers' },
+    { label: 'Đánh giá', href: isHome ? '#testimonial' : '/#testimonial' },
+    { label: 'Liên hệ', href: isHome ? '#footer' : '/#footer' },
   ]
 
   return (
     <>
       <header className={`header ${scrolled ? 'header-scrolled' : ''}`}>
         <div className="container">
-        <Link href="/" className="logo">OASIS</Link>
+        <Link href="/" className="logo">Đức Cây</Link>
           <nav className="navbar">
             <ul>
               {navItems.map((item) => (
@@ -144,8 +144,8 @@ export default function Header() {
                   <a
                     href={item.href}
                     className={
-                      (item.label === 'Home' && pathname === '/') ||
-                      (item.label === 'Product' && pathname === '/detail')
+                      (item.label === 'Trang chủ' && pathname === '/') ||
+                      (item.label === 'Sản phẩm' && pathname === '/detail')
                         ? 'active'
                         : ''
                     }
