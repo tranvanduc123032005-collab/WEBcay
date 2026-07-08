@@ -5,44 +5,44 @@ import Product from '@/models/Product'
 // Dữ liệu sản phẩm ban đầu (nhúng trực tiếp để hoạt động trên mọi hosting)
 const initialProducts = [
   {
-    name: "Monstera Deliciosa",
-    category: "Indoor Plants",
+    name: "Cây Trầu Bà Lỗ (Monstera)",
+    category: "Cây trong nhà",
     rating: "★★★★★",
     ratingValue: 5.0,
     ratingCount: 120,
     price: 25.00,
     image: "/images/product-1.jpg",
-    description: "The Monstera Deliciosa, also known as the Swiss Cheese Plant, is a popular tropical houseplant. Its large, glossy, heart-shaped leaves develop distinctive holes as they mature, making it a stunning decorative piece for any room."
+    description: "Cây Trầu Bà Lỗ, còn được gọi là cây Phô mai Thụy Sĩ, là một loại cây nhiệt đới trồng trong nhà phổ biến. Những chiếc lá to, bóng, hình trái tim của nó phát triển các lỗ đặc trưng khi trưởng thành, làm cho nó trở thành một món đồ trang trí tuyệt đẹp cho bất kỳ căn phòng nào."
   },
   {
-    name: "Snake Plant",
-    category: "Indoor Plants",
+    name: "Cây Lưỡi Hổ",
+    category: "Cây trong nhà",
     rating: "★★★★★",
     ratingValue: 4.9,
     ratingCount: 85,
     price: 18.00,
     image: "/images/product-2.jpg",
-    description: "The Snake Plant, or Sansevieria, is one of the hardiest house plants. Characterized by its upright sword-like leaves, it is excellent at purifying air and thrives on neglect, making it perfect for beginners."
+    description: "Cây Lưỡi Hổ (Sansevieria), là một trong những loại cây trồng trong nhà cứng cáp nhất. Đặc trưng bởi những chiếc lá thẳng đứng như thanh kiếm, nó rất xuất sắc trong việc thanh lọc không khí và phát triển tốt dù ít được chăm sóc, làm cho nó trở nên hoàn hảo cho người mới bắt đầu."
   },
   {
-    name: "Fiddle Leaf Fig",
-    category: "Outdoor Plants",
+    name: "Cây Bàng Singapore",
+    category: "Cây ngoài trời",
     rating: "★★★★★",
     ratingValue: 4.8,
     ratingCount: 64,
     price: 35.00,
     image: "/images/product-3.jpg",
-    description: "With its large, violin-shaped leaves and tall, elegant stature, the Fiddle Leaf Fig is a design favourite. It loves bright, indirect light and creates an instant focal point in any interior design."
+    description: "Với những chiếc lá lớn, hình vĩ cầm và dáng cây cao, thanh lịch, cây Bàng Singapore (Fiddle Leaf Fig) là một loài cây được yêu thích trong thiết kế. Nó ưa ánh sáng tự nhiên và tạo điểm nhấn ngay lập tức trong mọi thiết kế nội thất."
   },
   {
-    name: "Aloe Vera",
-    category: "Office Plants",
+    name: "Cây Nha Đam",
+    category: "Cây văn phòng",
     rating: "★★★★★",
     ratingValue: 4.7,
     ratingCount: 42,
     price: 15.00,
     image: "/images/product-4.jpg",
-    description: "Aloe Vera is a succulent plant species of the genus Aloe. Known for its soothing gel inside fleshy leaves, it's not only beautiful on office desks but also incredibly useful for minor burns and skin care."
+    description: "Nha Đam (Aloe Vera) là một loại cây mọng nước. Nổi tiếng với chất gel làm dịu bên trong lá thịt, nó không chỉ đẹp trên bàn làm việc mà còn vô cùng hữu ích cho những vết bỏng nhẹ và chăm sóc da."
   }
 ]
 

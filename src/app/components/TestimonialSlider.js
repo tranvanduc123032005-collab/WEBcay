@@ -5,23 +5,23 @@ import { useState, useEffect, useCallback } from 'react'
 const testimonials = [
   {
     stars: '★★★★★',
-    quote: '"I absolutely love the plants I ordered from Oasis! They arrived fresh and healthy. The packaging was careful and eco-friendly. Highly recommend to anyone looking to add some greenery to their space!"',
+    quote: '"Tôi hoàn toàn hài lòng với những cây đã mua từ Oasis! Chúng đến nơi trong tình trạng tươi tốt và khỏe mạnh. Bao bì cẩn thận và thân thiện với môi trường. Rất đáng để giới thiệu cho bất kỳ ai muốn thêm không gian xanh!"',
     name: 'Sarah M.',
-    role: 'Happy Customer',
+    role: 'Khách hàng vui vẻ',
     avatar: '/images/avatar-sarah.png',
   },
   {
     stars: '★★★★★',
-    quote: '"The Monstera I bought is thriving beautifully! Great quality plant with amazing customer service. They even included a care guide card. Will definitely be ordering more plants soon!"',
+    quote: '"Cây Monstera tôi mua đang phát triển rất tốt! Cây chất lượng tuyệt vời cùng dịch vụ khách hàng tuyệt hảo. Họ còn gửi kèm thẻ hướng dẫn chăm sóc. Chắc chắn tôi sẽ đặt thêm cây sớm thôi!"',
     name: 'James K.',
-    role: 'Plant Enthusiast',
+    role: 'Người đam mê cây',
     avatar: '/images/avatar-james.png',
   },
   {
     stars: '★★★★☆',
-    quote: '"Beautiful selection of plants! My office space looks so much more alive now. The delivery was fast and the plants were packed with great care. The only reason it\'s not 5 stars is I wish they had more succulents!"',
+    quote: '"Sự lựa chọn cây tuyệt đẹp! Không gian văn phòng của tôi trông sống động hơn nhiều. Giao hàng nhanh và cây được đóng gói rất cẩn thận. Lý do duy nhất không được 5 sao là tôi ước họ có nhiều loại sen đá hơn!"',
     name: 'Emily T.',
-    role: 'Interior Designer',
+    role: 'Nhà thiết kế nội thất',
     avatar: '/images/avatar-emily.png',
   },
 ]
@@ -51,8 +51,8 @@ export default function TestimonialSlider() {
     <section className="testimonial" id="testimonial">
       <div className="container">
         <div className="testimonial-content">
-          <span className="section-label">Testimonial</span>
-          <h2 className="section-title">What Our Customers Say</h2>
+          <span className="section-label">Đánh giá</span>
+          <h2 className="section-title">Khách hàng nói gì về chúng tôi</h2>
 
           {/* Slider Container */}
           <div className="testimonial-slider">

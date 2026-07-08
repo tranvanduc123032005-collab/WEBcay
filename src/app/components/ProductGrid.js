@@ -49,8 +49,8 @@ export default function ProductGrid() {
       <section className="best-sellers" id="best-sellers">
         <div className="container">
           <div className="best-sellers-header">
-            <span className="section-label">Best Sellers</span>
-            <h2 className="section-title">Our Best Sellers</h2>
+            <span className="section-label">Bán chạy nhất</span>
+            <h2 className="section-title">Sản phẩm bán chạy</h2>
           </div>
           {loading ? (
             <div className="products-grid">
@@ -112,4 +112,3 @@ export default function ProductGrid() {
     </>
   )
 }
-

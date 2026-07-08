@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Cột 1: Brand */}
           <div className="footer-brand">
             <div className="footer-logo">OASIS</div>
-            <p>Your one-stop shop for premium indoor and outdoor plants. We bring nature closer to you.</p>
+            <p>Cửa hàng duy nhất cho cây trồng trong nhà và ngoài trời chất lượng. Chúng tôi mang thiên nhiên đến gần bạn hơn.</p>
             <div className="social-icons">
               <a href="#">
                 {/* Facebook */}
@@ -39,44 +39,44 @@ export default function Footer() {
 
           {/* Cột 2: Quick Links */}
           <div className="footer-links">
-            <h3>Quick Links</h3>
+            <h3>Liên kết nhanh</h3>
             <ul>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="#">Testimonial</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="#">Cửa hàng</a></li>
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Sản phẩm</a></li>
+              <li><a href="#">Đánh giá</a></li>
+              <li><a href="#">Liên hệ</a></li>
             </ul>
           </div>
 
           {/* Cột 3: Categories */}
           <div className="footer-links">
-            <h3>Categories</h3>
+            <h3>Danh mục</h3>
             <ul>
-              <li><a href="#">Indoor Plants</a></li>
-              <li><a href="#">Outdoor Plants</a></li>
-              <li><a href="#">Flowering Plants</a></li>
-              <li><a href="#">Office Plants</a></li>
+              <li><a href="#">Cây trong nhà</a></li>
+              <li><a href="#">Cây ngoài trời</a></li>
+              <li><a href="#">Cây có hoa</a></li>
+              <li><a href="#">Cây văn phòng</a></li>
             </ul>
           </div>
 
           {/* Cột 4: Newsletter */}
           <div className="footer-newsletter">
-            <h3>Subscribe to Newsletter</h3>
-            <p>Get the latest news and updates about our plants and special offers.</p>
+            <h3>Đăng ký nhận bản tin</h3>
+            <p>Nhận tin tức mới nhất, cập nhật về các loại cây và ưu đãi đặc biệt.</p>
             <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-              <input type="email" placeholder="Enter your email" />
-              <button type="submit">Subscribe</button>
+              <input type="email" placeholder="Nhập email của bạn" />
+              <button type="submit">Đăng ký</button>
             </form>
             <div className="contact-info">
-              <span>📞 +1 (234) 567-8901</span>
-              <span>✉️ hello@oasis.com</span>
-              <span>📍 123 Green Street, NY</span>
+              <span>📞 0382882095</span>
+              <span>✉️ tranvanduc12303@gmail.com</span>
+              <span>📍 Tòa A2 Tecco</span>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2026 OASIS. All rights reserved.</p>
+          <p>&copy; 2026 OASIS. Đã đăng ký bản quyền.</p>
         </div>
       </div>
     </footer>
