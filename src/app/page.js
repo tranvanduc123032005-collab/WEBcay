@@ -1,13 +1,13 @@
-import dynamic from 'next/dynamic'
+'use client'
+
 import Link from 'next/link'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import TestimonialSlider from './components/TestimonialSlider'
 import ProductGrid from './components/ProductGrid'
 import ScrollReveal from './components/ScrollReveal'
-
-const BackToTop = dynamic(() => import('./components/BackToTop'), { ssr: false })
-const ChatWidget = dynamic(() => import('./components/ChatWidget'), { ssr: false })
+import BackToTop from './components/BackToTop'
+import ChatWidget from './components/ChatWidget'
 
 export default function Home() {
   return (

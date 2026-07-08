@@ -1,13 +1,11 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { useCart } from '../context/CartContext'
-
-const ChatWidget = dynamic(() => import('../components/ChatWidget'), { ssr: false })
+import ChatWidget from '../components/ChatWidget'
 
 export default function DetailPage() {
   const [productId, setProductId] = useState(null)
