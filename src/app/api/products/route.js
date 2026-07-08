@@ -1,23 +1,58 @@
 import { NextResponse } from 'next/server'
 import dbConnect from '@/lib/db'
 import Product from '@/models/Product'
-import fs from 'fs/promises'
-import path from 'path'
 
-// Hàm kiểm tra và nạp dữ liệu sản phẩm ban đầu từ products.json nếu DB trống
+// Dữ liệu sản phẩm ban đầu (nhúng trực tiếp để hoạt động trên mọi hosting)
+const initialProducts = [
+  {
+    name: "Monstera Deliciosa",
+    category: "Indoor Plants",
+    rating: "★★★★★",
+    ratingValue: 5.0,
+    ratingCount: 120,
+    price: 25.00,
+    image: "/images/product-1.jpg",
+    description: "The Monstera Deliciosa, also known as the Swiss Cheese Plant, is a popular tropical houseplant. Its large, glossy, heart-shaped leaves develop distinctive holes as they mature, making it a stunning decorative piece for any room."
+  },
+  {
+    name: "Snake Plant",
+    category: "Indoor Plants",
+    rating: "★★★★★",
+    ratingValue: 4.9,
+    ratingCount: 85,
+    price: 18.00,
+    image: "/images/product-2.jpg",
+    description: "The Snake Plant, or Sansevieria, is one of the hardiest house plants. Characterized by its upright sword-like leaves, it is excellent at purifying air and thrives on neglect, making it perfect for beginners."
+  },
+  {
+    name: "Fiddle Leaf Fig",
+    category: "Outdoor Plants",
+    rating: "★★★★★",
+    ratingValue: 4.8,
+    ratingCount: 64,
+    price: 35.00,
+    image: "/images/product-3.jpg",
+    description: "With its large, violin-shaped leaves and tall, elegant stature, the Fiddle Leaf Fig is a design favourite. It loves bright, indirect light and creates an instant focal point in any interior design."
+  },
+  {
+    name: "Aloe Vera",
+    category: "Office Plants",
+    rating: "★★★★★",
+    ratingValue: 4.7,
+    ratingCount: 42,
+    price: 15.00,
+    image: "/images/product-4.jpg",
+    description: "Aloe Vera is a succulent plant species of the genus Aloe. Known for its soothing gel inside fleshy leaves, it's not only beautiful on office desks but also incredibly useful for minor burns and skin care."
+  }
+]
+
+// Hàm kiểm tra và nạp dữ liệu sản phẩm ban đầu nếu DB trống
 async function checkAndSeed() {
   try {
     const count = await Product.countDocuments()
     if (count === 0) {
-      const jsonPath = path.join(process.cwd(), 'src', 'data', 'products.json')
-      const fileData = await fs.readFile(jsonPath, 'utf8')
-      const initialProducts = JSON.parse(fileData)
-      
-      // Loại bỏ thuộc tính id cứng của client để MongoDB tự sinh _id mới
-      const seededData = initialProducts.map(({ id, ...rest }) => rest)
-      
-      await Product.insertMany(seededData)
-      console.log('🌱 Đã nạp dữ liệu sản phẩm ban đầu từ JSON vào MongoDB!')
+      await Product.insertMany(initialProducts)
+      console.log('🌱 Đã nạp dữ liệu sản phẩm ban đầu vào MongoDB!')
     }
   } catch (error) {
     console.error('⚠️ Không thể seed dữ liệu ban đầu:', error)

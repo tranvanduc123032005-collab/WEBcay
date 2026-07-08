@@ -1,6 +1,4 @@
 import { NextResponse } from 'next/server'
-import fs from 'fs/promises'
-import path from 'path'
 
 export async function POST(request) {
   try {
@@ -11,29 +9,19 @@ export async function POST(request) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 })
     }
     
+    // Đọc file thành buffer rồi chuyển sang base64 data URL
+    // Cách này hoạt động trên mọi hosting (Render, Vercel, etc.) vì không cần ghi file vào ổ đĩa
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
     
-    // Đảm bảo thư mục public/uploads tồn tại
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads')
-    try {
-      await fs.access(uploadDir)
-    } catch {
-      await fs.mkdir(uploadDir, { recursive: true })
-    }
+    // Lấy mime type từ file
+    const mimeType = file.type || 'image/jpeg'
     
-    // Tạo tên file độc nhất để tránh trùng lặp
-    const ext = path.extname(file.name) || '.jpg'
-    const baseName = path.basename(file.name, ext).replace(/[^a-zA-Z0-9]/g, '_')
-    const fileName = `${baseName}_${Date.now()}${ext}`
-    const filePath = path.join(uploadDir, fileName)
+    // Chuyển thành base64 data URL
+    const base64 = buffer.toString('base64')
+    const dataUrl = `data:${mimeType};base64,${base64}`
     
-    // Ghi file xuống ổ đĩa
-    await fs.writeFile(filePath, buffer)
-    
-    // Trả về URL tương đối để hiển thị trực tiếp ở client
-    const fileUrl = `/uploads/${fileName}`
-    return NextResponse.json({ url: fileUrl })
+    return NextResponse.json({ url: dataUrl })
   } catch (error) {
     console.error('Upload error:', error)
     return NextResponse.json({ error: 'Failed to upload image' }, { status: 500 })
